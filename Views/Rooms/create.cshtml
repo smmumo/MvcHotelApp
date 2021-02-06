@@ -1,0 +1,47 @@
+@model RoomsCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Rooms";
+}
+<form class="Create" asp-controller="Rooms" asp-action="Create" method="POST">
+    <div class="row">        
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="room_type_id"></label>                           
+                <input type="text" class="form-control" asp-for="room_type_id">
+                <span class="text-danger" asp-validation-for="room_type_id"></span>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="price"></label>
+                    <input type="text" class="form-control"asp-for="price">                    
+                @* <select id="dstn_id" name="destination_id" class="form-control custom-select">
+                </select> *@
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="number_of_adults"></label>
+                 <input type="text" class="form-control" asp-for="number_of_adults" placeholder="">
+                 <span class="text-danger" asp-validation-for="number_of_adults"></span>
+                @* <select id="rst_id" name="resort_id" class="form-control custom-select">
+                    <option value="" selected></option>
+                </select> *@
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-4 col-sm-4">
+            <div class="form-group">
+                <label asp-for="number_of_children"> </label>
+                <input type="text" class="form-control" asp-for="number_of_children">
+                <span class="text-danger" asp-validation-for="number_of_children"></span>
+            </div>
+        </div>
+    </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group row">
+        <button class="btn btn-sm btn-primary" type="submit">Create</button>
+    </div>     
+ </form>
+  
+  

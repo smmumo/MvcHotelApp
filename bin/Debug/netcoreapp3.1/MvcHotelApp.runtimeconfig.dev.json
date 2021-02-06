@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/xmorex/.dotnet/store/|arch|/|tfm|",
+      "/home/xmorex/.nuget/packages"
+    ]
+  }
+}

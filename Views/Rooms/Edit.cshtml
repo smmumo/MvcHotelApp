@@ -1,0 +1,53 @@
+@* @model RoomsEditViewModel *@
+@model Rooms
+
+@{
+    ViewData["Title"] = "Edit Hotel";
+    @* ViewData["Title"] = @Model.PageTitle; *@
+}
+<form class="UpdateDetails" asp-action="Edit" asp-controller="Rooms" method="POST">
+    <div class="row">
+         @* <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="roomTypeName"> </label>                           
+                <input asp-for="roomTypeName" class="form-control" />                
+                <span  class="text-danger" asp-validation-for="roomTypeName"></span>
+            </div>
+        </div> *@
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="room_type_id"> </label>                           
+                <input asp-for="room_type_id" class="form-control" />                
+                <span  class="text-danger" asp-validation-for="room_type_id"></span>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="price"></label>
+                <input asp-for="price" class="form-control" />
+                 <span  class="text-danger" asp-validation-for="price"></span>
+                @* <select id="dstn_id" name="destination_id" class="form-control custom-select">
+                </select> *@
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="number_of_adults"></label>
+                 <input class="form-control" asp-for="number_of_adults">
+                   <span  class="text-danger" asp-validation-for="number_of_adults"></span>
+                @* <select id="rst_id" name="resort_id" class="form-control custom-select">
+                    <option value="" selected></option>
+                </select> *@
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-4 col-sm-4">
+            <div class="form-group">
+                <label asp-for="number_of_children"></label>
+                <input class="form-control" asp-for="number_of_children">
+                <span  class="text-danger" asp-validation-for="number_of_children"></span>
+            </div>
+        </div>
+    </div>
+     <button name="Submit" id="update_btn" class="btn btn-sm btn-primary"  type="submit">
+        Update</button>
+ </form>

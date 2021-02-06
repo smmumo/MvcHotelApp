@@ -1,0 +1,355 @@
+﻿
+@inject SignInManager<IdentityUser> signInManager;
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MvcHotelApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+     <link rel="stylesheet" href="~/css/adminlte.css" />
+
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+
+    <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+
+    @* <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css"> *@
+
+
+    <link rel="stylesheet" href="~/plugins/jvectormap/jquery-jvectormap-2.0.5.css">
+
+
+    @* <link rel="stylesheet" href="/dist/css/adminlte.min.css"> *@
+
+
+    <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+    <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.css">
+
+    <link rel="stylesheet" href="~/plugins/jquery-ui/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+    @* <link rel="stylesheet" href="/css/select2.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+
+    <link type="text/css" rel="stylesheet" href="/caledar/month_green.css" />
+    <link type="text/css" rel="stylesheet" href="/css/wizard2.css" /> *@
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+
+  
+  
+</head>
+
+<body>
+    <header>
+        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow
+            mb-3">
+            <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcHotelApp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </li>
+            </ul>
+            </div>
+            </div>
+            </nav> *@
+        <nav class="main-header navbar navbar-expand navbar-light navbar-white  ">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/" class="nav-link" target="_blank">Beds</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+            </ul>
+        </nav>
+
+    </header>
+    <div class="wrapper">
+       
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">  
+        <a href="/Auth/dashboard" class="brand-link navbar-danger">
+            @* <img src="/assets/images/smile_tr.png" alt="Liyana Beds Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8;" /> *@
+            <span class="brand-text font-weight-light" style="color: #fff !important;">Beds</span>
+        </a>
+        <div class="sidebar">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                @* <img src="/assets/images/default.png" class="img-circle elevation-2" alt="User Image"> *@
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">
+                mumo
+                </a>
+            </div>
+            </div>
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <a href="/Hotels/create_hotels" class="d-block">
+                <i class="fa fa-plus" style="font-size:1.3em;margin-top: 0.3em;margin-left: 0.5em;"></i>
+                </a>
+            </div>
+            <div class="info">
+                <a  asp-controller="Hotels" asp-action="create" class="d-block">
+                Create Hotel
+                </a>
+            </div>
+            </div>
+            <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                <a href="" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                    Dashboard
+                    </p>
+                </a>
+                </li>
+                <li class="nav-item has-treeview">
+                <a asp-controller="Hotels" asp-action="index" class="nav-link">
+                    <i class="nav-icon fas fa-hotel"></i>
+                    <p>
+                    Hotels
+                    <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a asp-controller="Hotels" asp-action="index" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All Hotels</p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a  asp-controller="Hotels" asp-action="create" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Create Hotel</p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-action="create" asp-controller="RoomTypes" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Room Types</p>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-briefcase"></i>
+                    <p>
+                    Users
+                    <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a asp-action="Register" asp-controller="accounts" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Register</p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a asp-controller="Administration" asp-action="ListUsers" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All Users</p>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                @* @if(signInManager.IsSignedIn(User) && User.IsInRole("Admin")){               *@
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-briefcase"></i>
+                        <p>
+                           Roles
+                        <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                            <a asp-action="createrole" asp-controller="administration" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>create role</p>
+                            </a>
+                            </li>
+                            <li class="nav-item">
+                            <a asp-controller="administration" asp-action="index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All role</p>
+                            </a>
+                            </li>
+                        </ul>
+                </li>
+                @* } *@
+                @* <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-briefcase"></i>
+                    <p>
+                    Bookings
+                    <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                    <a asp-controller="Bookings" asp-action="bookings" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>All Bookings</p>
+                    </a>
+                    </li>
+                </ul>
+                </li> *@
+                @if(signInManager.IsSignedIn(User)){
+                    <li class="nav-item">
+                        <a  class="nav-link">                           
+                            <form asp-action="logout" asp-controller="accounts" method="Post">
+                                     <i class="fa fa-sign-out nav-icon"></i>
+                             <p>
+                               <button type="submit" class="nav-link">Logout @User.Identity.Name</button> 
+                            </p>
+                            </form>                            
+                        </a>
+                    </li>
+                }else{
+                    <li class="nav-item">
+                        <a  asp-action="login" asp-controller="accounts" class="nav-link">                           
+                           <i class="fa fa-sign-out nav-icon"></i>
+                             <p>
+                              Login
+                            </p>                                                    
+                        </a>
+                    </li>
+                }
+               
+            </ul>
+            </nav>
+        </div>
+        </aside>
+        <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">@ViewBag.pageTitle</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/auth/dashboard">Home</a></li>
+                            <li class="breadcrumb-item active">@ViewBag.ActivePage</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">@ViewBag.ActivePager</h3>
+                        </div>                      
+                        <div class="card-body">                          
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <main role="main" class="pb-3">
+                                        @RenderBody()
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>       
+    </div>
+
+        @* <div class="container">
+            
+        </div> *@
+    @* </div> *@
+
+    @* <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - MvcHotelApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2020 <a href="/">Beds</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            @* <b>Leicester City - United Kingdom</b>  *@
+        </div>
+    </footer>
+     <aside class="control-sidebar control-sidebar-dark">     
+    </aside>
+</div>
+
+    @* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
+      <script src="~/lib/jquery/dist/jquery.js"></script>
+     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+  
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>  
+
+
+
+    <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script> 
+
+@* <script src="/js/jquery.dataTables.min.js"></script> 
+<script src="/js/select2.min.js"></script> *@
+
+<script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<script src="~/plugins/moment/moment.min.js"></script>
+<script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+
+
+<script src="~/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
+<script src="~/plugins/summernote/summernote-bs4.min.js"></script>
+
+
+<script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+
+<script src="~/plugins/mdbootstrap/js/mdb.min.js"></script>
+<script src="~/js/adminlte.js"></script>
+
+@* <script src="/dist/js/adminlte.js"></script>
+<script src="/js/jquery.validate.min.js"></script> *@
+
+@* <script src="/js/bootbox.js"></script>
+<script src="/js/typehead.js"></script> *@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+@* @if(IsSectionDefined("Script")){
+     @RenderSection("Scripts", required: true)
+} *@
+    @RenderSection("Scripts", required: false)
+</body>
+@* Get-Process -Name *dotnet* | Stop-Process *@
+</html>

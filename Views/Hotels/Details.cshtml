@@ -1,0 +1,40 @@
+@model MvcHotelApp.ViewModels.HotelDetailsViewModel
+
+@{
+    ViewData["Title"] = @Model.PageTitle;
+}
+<form class="UpdateHotelDetails">
+    <div class="row">
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label>HotelName </label>                           
+                <input type="text" class="form-control" value="@Model.Hotel.hotel_name" name="hotel_name" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label>Destination</label>
+                    <input type="text" class="form-control" value="@Model.Hotel.destination_id" name="hotel_name" placeholder="">
+                @* <select id="dstn_id" name="destination_id" class="form-control custom-select">
+                </select> *@
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label>Resort</label>
+                 <input type="text" class="form-control" value="@Model.Hotel.resort_id" name="result_id" placeholder="">
+                @* <select id="rst_id" name="resort_id" class="form-control custom-select">
+                    <option value="" selected></option>
+                </select> *@
+            </div>
+        </div>
+            <div class="col-md-4 col-xs-4 col-sm-4">
+            <div class="form-group">
+                <label>City </label>
+                <input type="text" class="form-control" value="@Model.Hotel.city" name="city" placeholder="">
+            </div>
+        </div>
+    </div>
+     <button name="Submit" id="update_btn" class="btn btn-sm btn-success" style="float: right;" type="submit">
+         <i class="fa fa-refresh fa-spin btn-sm updatehotelloader" style="color:red;display: none"></i>Update</button>
+ </form>

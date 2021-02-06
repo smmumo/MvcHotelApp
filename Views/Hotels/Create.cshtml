@@ -1,0 +1,53 @@
+@model HotelCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Hotel";
+}
+<form class="CreateHotelDetails" asp-controller="Hotels" asp-action="Create" method="POST">
+    <div class="row">        
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="hotel_name"></label>                           
+                <input type="text" class="form-control" asp-for="hotel_name">
+                <span class="text-danger" asp-validation-for="hotel_name"></span>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="destination_id"></label>
+                    <input type="text" class="form-control"asp-for="destination_id" placeholder="">
+                    <span class="text-danger" asp-validation-for="destination_id"></span>
+                @* <select id="dstn_id" name="destination_id" class="form-control custom-select">
+                </select> *@
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-6 col-sm-4">
+            <div class="form-group">
+                <label asp-for="resort_id"></label>
+                 <input type="text" class="form-control" asp-for="resort_id" placeholder="">
+                 <span class="text-danger" asp-validation-for="resort_id"></span>
+                @* <select id="rst_id" name="resort_id" class="form-control custom-select">
+                    <option value="" selected></option>
+                </select> *@
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-4 col-sm-4">
+            <div class="form-group">
+                <label asp-for="city"> </label>
+                <input type="text" class="form-control" asp-for="city">
+                <span class="text-danger" asp-validation-for="city"></span>
+            </div>
+        </div>
+    </div>
+    <div asp-validation-summary="All"></div>
+    <div class="form-group row">
+        <button class="btn btn-sm btn-primary" type="submit">Create</button>
+    </div>  
+     @* <button name="Submit" id="update_btn" class="btn btn-sm btn-success" style="float: right;" type="submit">
+         <i class="fa fa-refresh fa-spin btn-sm updatehotelloader" style="color:red;display: none"></i>Submit</button> *@
+ </form>
+  
+  @*script is loaded for  this page only*@
+  @* @section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+  } *@

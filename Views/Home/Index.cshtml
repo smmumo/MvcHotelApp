@@ -1,0 +1,36 @@
+﻿@* @model MvcHotelApp.Models *@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@* https://dotnettutorials.net/course/dot-net-design-patterns/ *@
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+ <table>
+      <thead>
+        <th>HotelId</th>
+        <th>Name</th>
+        @* <th>Email</th>
+        <th>Department</th> *@
+      </thead>
+      <tbody>
+          @foreach (var hotel in Model)
+          {              
+             <tr>
+                 <td>@hotel.hotel_id</td>
+                  <td>@hotel.hotel_name</td>
+                   @* <td>@hotel.Email</td>
+                   <td>@hotel.Department</td>   *@
+                   <td>
+                        <a asp-controller="home" asp-action="details" asp-route-id="@hotel.hotel_id"
+                         class="btn btn-primary">show</a>
+                        <a href="/home/details/@hotel.hotel_id" class="btn btn-primary">View</a>
+                       <a asp-controller="home" asp-action="edit" asp-route-id="@hotel.hotel_id" class="btn btn-primary">Edit</a>
+                        <a href="#" class="btn btn-primary">Delete</a>
+                   </td>           
+             </tr>             
+          }         
+      </tbody>     
+  </table> 

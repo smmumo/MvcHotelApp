@@ -1,0 +1,121 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">  
+  <a href="/Auth/dashboard" class="brand-link navbar-danger">
+    <img src="/assets/images/smile_tr.png" alt="Liyana Beds Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8;" />
+    <span class="brand-text font-weight-light" style="color: #fff !important;">LiyanaBeds</span>
+  </a>
+  <div class="sidebar">
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="/assets/images/default.png" class="img-circle elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">
+        mumo
+        </a>
+      </div>
+    </div>
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <a href="/Hotels/create_hotels" class="d-block">
+          <i class="fa fa-plus" style="font-size:1.3em;margin-top: 0.3em;margin-left: 0.5em;"></i>
+        </a>
+      </div>
+      <div class="info">
+        <a href="/Hotels/create_hotels" class="d-block">
+          Create Hotel
+        </a>
+      </div>
+    </div>
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+          <a href="" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+            </p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-hotel"></i>
+            <p>
+              Hotels
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a asp-controller="Hotels" asp-action="index" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Hotels</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a asp-controller="Hotels" asp-action="create" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Create Hotel</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a asp-controller="RoomTypes" asp-action="create" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Room Types</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-briefcase"></i>
+            <p>
+             Users
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a asp-action="Register" asp-controller="accounts" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Register</p>
+              </a>
+            </li>
+             <li class="nav-item">
+              <a asp-controller="accounts" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Users</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        @* <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-briefcase"></i>
+            <p>
+              Bookings
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/Hotels/bookinglist" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Bookings</p>
+              </a>
+            </li>
+          </ul>
+        </li> *@
+      
+        <li class="nav-item">
+          <a href="/Logout" class="nav-link">
+            <i class="fa fa-sign-out nav-icon"></i>
+            <p>
+              Logout
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>
+ @RenderBody()
